@@ -1,0 +1,10 @@
+{
+    "extends": ["airbnb-base", "plugin:prettier/recommended", "eslint:recommended", "plugin:jest/recommended"],
+    "plugins": ["prettier", "jest"],
+    "rules": {
+      "prettier/prettier": "error"
+    },
+    "env": {
+      "jest/globals": true
+  }  
+}
