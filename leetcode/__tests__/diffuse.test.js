@@ -1,4 +1,4 @@
-import diffuse from '../diffuse';
+import diffuse from '../src/diffuse';
 
 test('should return diffused array', () => {
     const array = [1,2,3,4,5]
