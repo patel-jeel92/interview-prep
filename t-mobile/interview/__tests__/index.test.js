@@ -1,4 +1,4 @@
-const postFix = require('./index');
+const postFix = require('../src/index');
 
 test('should add correctly', ()=> {
     const input = ["4.5", "5.25", "+"]

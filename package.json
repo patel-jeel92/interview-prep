@@ -1,0 +1,47 @@
+{
+  "name": "interview-prep",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/patel-jeel92/interview-prep.git"
+  },
+  "keywords": [
+    "Repository",
+    "to",
+    "help",
+    "prepare",
+    "for",
+    "interviews"
+  ],
+  "author": "Jeel Patel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/patel-jeel92/interview-prep/issues"
+  },
+  "homepage": "https://github.com/patel-jeel92/interview-prep#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.13.10",
+    "@babel/core": "^7.13.10",
+    "@babel/node": "^7.13.12",
+    "@babel/preset-env": "^7.13.12",
+    "@babel/runtime": "^7.13.10",
+    "eslint": "^7.22.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^8.1.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "jest": "^26.6.3",
+    "nodemon": "^2.0.7",
+    "prettier": "^2.2.1"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}
