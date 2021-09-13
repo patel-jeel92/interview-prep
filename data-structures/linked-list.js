@@ -39,3 +39,4 @@ class LinkedList {
     current.next.next = current.next;
   }
 }
+export default LinkedList;

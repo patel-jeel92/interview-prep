@@ -1,4 +1,4 @@
-var maxSumOfSizeK = function (array, size) {
+const maxSumOfSizeK = function (array, size) {
   let sum = 0;
   for (let i = 0; i < size; i++) {
     sum += array[i];

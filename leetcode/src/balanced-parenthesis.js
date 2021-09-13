@@ -1,15 +1,15 @@
-var balancedParenthesis = function (string) {
+const balancedParenthesis = function (string) {
   // Map to store the matching brackets.
-  var map = {
-    "{": "}",
-    "[": "]",
-    "(": ")",
-    "<": ">",
+  const map = {
+    '{': '}',
+    '[': ']',
+    '(': ')',
+    '<': '>',
   };
 
   // Declare a stack so you can push to see if the most recent pushed item is equal to the current item.
-  var stack = [];
-  for (let char of string) {
+  const stack = [];
+  for (const char of string) {
     // If its an opening bracket, push the closing bracket to the stack
     if (char in map) {
       stack.push(map[char]);
@@ -23,4 +23,4 @@ var balancedParenthesis = function (string) {
   return stack.length === 0;
 };
 
-console.log(balancedParenthesis("[()]{}{[()()]()}"));
+console.log(balancedParenthesis('[()]{}{[()()]()}'));

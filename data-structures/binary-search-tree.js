@@ -10,6 +10,7 @@ class BinarySearchTree {
   constructor() {
     this.root = null;
   }
+
   insert(value) {
     const newNode = new BinaryTreeNode(value);
     if (this.root === null) {
