@@ -2,13 +2,12 @@
   "extends": [
     "airbnb-base",
     "prettier",
-    //"plugin:prettier/recommended",
     "eslint:recommended",
-    "plugin:jest/recommended"
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended"
   ],
   "plugins": ["jest"],
   "rules": {
-    //"prettier/prettier": "error",
     "allowForLoopAfterthoughts": 0,
     "func-names": "off",
     "no-plusplus": 0,

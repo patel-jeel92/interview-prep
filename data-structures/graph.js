@@ -1,4 +1,4 @@
-class Graph {
+export default class Graph {
   constructor() {
     this.adjacencyList = {};
   }
@@ -29,40 +29,19 @@ class Graph {
     delete this.adjacencyList[vertex];
   }
 
-  depthFirstRecursive(start) {
-    const result = [];
-    const visited = {};
-    const adjacencyList = this.adjacencyList;
-
-    (function dfs(vertex) {
-      if (!vertex) return null;
-      visited[vertex] = true;
-      result.push(vertex);
-      adjacencyList[vertex].forEach((neighbor) => {
-        if (!visited[neighbor]) {
-          return dfs(neighbor);
-        }
-      });
-    })(start);
-
-    return result;
-  }
-
   depthFirstIterative(start) {
     const stack = [start];
     const result = [];
     const visited = {};
-    let currentVertex;
-
     visited[start] = true;
-    result.push(start);
+    let currentVertex;
 
     while (stack.length) {
       currentVertex = stack.pop();
+      result.push(start);
       this.adjacencyList[currentVertex].forEach((neighbor) => {
         if (!visited[neighbor]) {
           visited[neighbor] = true;
-          result.push(neighbor);
           stack.push(neighbor);
         }
       });
@@ -75,34 +54,20 @@ class Graph {
     const queue = [start];
     const result = [];
     const visited = {};
-    let currentVertex;
-
     visited[start] = true;
-    result.push(start);
+    let currentVertex;
 
     while (queue.length) {
       currentVertex = queue.shift();
+      result.push(currentVertex);
       this.adjacencyList[currentVertex].forEach((neighbor) => {
         if (!visited[neighbor]) {
           visited[neighbor] = true;
-          result.push(neighbor);
           queue.push(neighbor);
         }
       });
     }
 
     return result;
-  }
-
-  dijkstra(start, finish) {
-    // single source shortest path. 1 node to all other nodes
-  }
-
-  bellmanFord(start, finish) {
-    // single source shortest path. 1 node to all other nodes
-  }
-
-  floydWarshall() {
-    // all pairs shortest path.
   }
 }

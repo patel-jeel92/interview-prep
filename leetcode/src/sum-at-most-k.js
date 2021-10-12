@@ -3,14 +3,14 @@ const sumAtMostK = function (array, k) {
   let sum = 0;
   let right = 0;
   for (let left = 0; left < array.length; left++) {
-    if (left > 1) {
+    if (left >= 1) {
       sum -= array[left - 1];
     }
     while (right < array.length && sum + array[right] <= k) {
       sum += array[right];
       right++;
     }
-    answer = Math.max(answer, right - left);
+    answer = Math.max(answer, right - left + 1);
   }
   return answer;
 };
@@ -19,6 +19,7 @@ const sumAtMostK2 = function (array, k) {
   let maxWindowSize = Number.NEGATIVE_INFINITY;
   let currentWindowSum = 0;
   let windowStart = 0;
+
   for (let windowEnd = 0; windowEnd < array.length; windowEnd++) {
     currentWindowSum += array[windowEnd];
 
@@ -32,5 +33,5 @@ const sumAtMostK2 = function (array, k) {
   return maxWindowSize;
 };
 
-console.log(sumAtMostK([1, 2, 1, 5, 1, 1, 2], 5));
-console.log(sumAtMostK2([1, 2, 1, 5, 1, 1, 2], 5));
+console.log(sumAtMostK([4, 2, 2, 7, 8, 1, 2, 8, 10], 2));
+console.log(sumAtMostK2([4, 2, 2, 7, 8, 1, 2, 8, 10], 2));

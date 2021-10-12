@@ -5,13 +5,13 @@ class PQNode {
   }
 }
 
-class PriorityQueue {
+export default class PriorityQueue {
   constructor() {
     this.heap = [null];
   }
 
   enqueue(value, priority) {
-    let newNode = new PQNode({ value, priority });
+    const newNode = new PQNode({ value, priority });
     this.heap.push(newNode);
     let currentNodeIdx = this.heap.length - 1;
     let currentNodeParentIdx = Math.floor(currentNodeIdx / 2);
@@ -35,9 +35,9 @@ class PriorityQueue {
     }
     const toRemove = this.heap[1];
     this.heap[1] = this.heap.pop();
-    let currentIdx = 1;
-    let [left, right] = [2 * currentIdx, 2 * currentIdx + 1];
-    let currentChildIdx =
+    const currentIdx = 1;
+    const [left, right] = [2 * currentIdx, 2 * currentIdx + 1];
+    const currentChildIdx =
       this.heap[right] && this.heap[right].priority >= this.heap[left].priority
         ? right
         : left;
@@ -45,8 +45,8 @@ class PriorityQueue {
       this.heap[currentChildIdx] &&
       this.heap[currentIdx].priority <= this.heap[currentChildIdx].priority
     ) {
-      let currentNode = this.heap[currentIdx];
-      let currentChildNode = this.heap[currentChildIdx];
+      const currentNode = this.heap[currentIdx];
+      const currentChildNode = this.heap[currentChildIdx];
       this.heap[currentChildIdx] = currentNode;
       this.heap[currentIdx] = currentChildNode;
     }

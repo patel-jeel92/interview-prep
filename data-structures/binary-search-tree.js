@@ -6,7 +6,7 @@ class BinaryTreeNode {
   }
 }
 
-class BinarySearchTree {
+export default class BinarySearchTree {
   constructor() {
     this.root = null;
   }
@@ -18,6 +18,7 @@ class BinarySearchTree {
       return this;
     }
     let currentNode = this.root;
+    // eslint-disable-next-line no-constant-condition
     while (true) {
       if (value === currentNode.value) return undefined;
       if (value < currentNode.value) {

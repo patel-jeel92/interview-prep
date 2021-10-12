@@ -34,8 +34,7 @@ npm install jest --save-dev
 
 ## Babel
 
-Babel is a tool that is used to convert ECMAScript 2015+ code into a backward compatible version of JavaScript 
-so that older browsers and environment will be able to understand your code.
+Babel is a tool that is used to convert ECMAScript 2015+ code into a backward compatible version of JavaScript so that older browsers and environment will be able to understand your code.
 
 Run the following command to install babel:
 
@@ -79,8 +78,8 @@ Create the file named `.prettierrc` in the root directory and adding the followi
 ```js
 {
   "trailingComma": "es5",
-  "tabWidth": 4,
-  "semi": false,
+  "tabWidth": 2,
+  "semi": true,
   "singleQuote": true
 }
 ```
@@ -93,11 +92,29 @@ Create the file named `.eslintrc.json` in the root directory and add the followi
 
 ```js
 {
-  "extends": ["airbnb-base", "plugin:prettier/recommended", "eslint:recommended", "plugin:jest/recommended"],
-  "plugins": ["prettier", "jest"],
+  "extends": [
+    "airbnb-base",
+    "prettier",
+    "eslint:recommended",
+    "plugin:jest/recommended",
+    "plugin:prettier/recommended"
+  ],
+  "plugins": ["jest"],
   "rules": {
-    "prettier/prettier": "error"
-  }  
+    "allowForLoopAfterthoughts": 0,
+    "func-names": "off",
+    "no-plusplus": 0,
+    "no-unused-vars": "warn",
+    "no-console": 0,
+    "no-process-exit": 0,
+    "no-param-reassign": 0,
+    "no-restricted-syntax": 0,
+    "no-lonely-if": 0,
+    "max-classes-per-file": 0
+  },
+  "env": {
+    "jest/globals": true
+  }
 }
 ```
 
@@ -127,7 +144,7 @@ Configure VS Code
 ```js
 {
   ..
-  "editor.formatOnSave": true,
+  "editor.formatOnSave": false,
   ..
 }
 ```
