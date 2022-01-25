@@ -1,8 +1,8 @@
 {
-  "cSpell.words": ["nums", "Warshall"],
-  "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.organizeImports": true
-  },
-  "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "cSpell.words": ["nums", "Warshall"],
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true,
+        "source.organizeImports": true
+    },
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
 }
