@@ -1,4 +1,4 @@
-const findDuplicatesInConstantSpace = function (nums) {
+const findDuplicates = function (nums) {
   const result = [];
   for (let i = 0; i < nums.length; i++) {
     const num = Math.abs(nums[i]);
@@ -11,3 +11,5 @@ const findDuplicatesInConstantSpace = function (nums) {
 
   return result;
 };
+
+export default findDuplicates;

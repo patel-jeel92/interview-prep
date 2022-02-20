@@ -28,3 +28,4 @@ const combinationSum = (candidates, target) => {
   dfsRecursive(0, candidates, target, []);
   return result;
 };
+export default combinationSum;

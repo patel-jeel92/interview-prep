@@ -34,4 +34,5 @@ const generateParenthesis = (n) => {
   return result;
 };
 
+export default generateParenthesis;
 console.log(generateParenthesis(3));

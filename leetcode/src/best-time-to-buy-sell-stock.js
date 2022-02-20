@@ -1,5 +1,6 @@
-var maxProfit = function (prices) {
+const maxProfit = function (prices) {
   let max = 0;
+
   let minPrice = Number.POSITIVE_INFINITY;
 
   for (let i = 0; i < prices.length; i++) {

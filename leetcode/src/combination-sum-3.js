@@ -32,4 +32,5 @@ const combinationSum3 = (k, n) => {
   return result;
 };
 
+export default combinationSum3;
 console.log(combinationSum3(3, 7));
