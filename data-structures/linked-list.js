@@ -1,6 +1,6 @@
-class LinkedListNode {
-  constructor(data) {
-    this.data = data;
+export class LinkedListNode {
+  constructor(val) {
+    this.val = val;
     this.next = null;
   }
 }
@@ -10,8 +10,8 @@ class LinkedList {
     return this.next !== null;
   }
 
-  addNext(data) {
-    this.next = new LinkedListNode(data);
+  addNext(val) {
+    this.next = new LinkedListNode(val);
   }
 
   getAt(index) {
@@ -30,12 +30,12 @@ class LinkedList {
     current.next = current.next.next;
   }
 
-  insertAt(index, data) {
+  insertAt(index, val) {
     let current = this;
     for (let i = 0; i < index; i++) {
       current = current.next;
     }
-    current.next = new LinkedListNode(data);
+    current.next = new LinkedListNode(val);
     current.next.next = current.next;
   }
 }
