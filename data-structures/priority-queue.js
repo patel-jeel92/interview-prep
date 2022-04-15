@@ -1,11 +1,11 @@
-class PQNode {
+export class PQNode {
   constructor(params) {
     this.value = params.value;
     this.priority = params.priority;
   }
 }
 
-export default class PriorityQueue {
+export class PriorityQueue {
   constructor() {
     this.heap = [null];
   }

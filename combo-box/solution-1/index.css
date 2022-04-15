@@ -1,0 +1,16 @@
+label {
+  font-family: 'Fira Sans', sans-serif;
+}
+input::-webkit-calendar-picker-indicator {
+  opacity: 100;
+}
+option {
+  background-color: lightgray;
+}
+input {
+  background-color: lightgray;
+  padding: auto;
+  height: 30px;
+  width: 200px;
+  border-radius: 5px;
+}

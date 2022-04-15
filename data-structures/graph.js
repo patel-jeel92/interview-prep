@@ -29,7 +29,7 @@ export default class Graph {
     delete this.adjacencyList[vertex];
   }
 
-  depthFirstIterative(start) {
+  dfsIterative(start) {
     const stack = [start];
     const result = [];
     const visited = {};
@@ -50,7 +50,25 @@ export default class Graph {
     return result;
   }
 
-  breadthFirst(start) {
+  dfsRecursive(start) {
+    const result = [];
+    const visited = {};
+    const { adjacencyList } = this;
+    // eslint-disable-next-line consistent-return
+    (function dfs(vertex) {
+      if (!vertex) return null;
+      visited[vertex] = true;
+      result.push(vertex);
+      adjacencyList[vertex].forEach((neighbor) => {
+        if (!visited[neighbor]) {
+          return dfs(neighbor);
+        }
+      });
+    })(start);
+    return result;
+  }
+
+  bfs(start) {
     const queue = [start];
     const result = [];
     const visited = {};

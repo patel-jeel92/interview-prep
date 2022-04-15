@@ -1,8 +1,6 @@
 const letterCombinations = function (digits) {
-  if (digits === '') return [];
-
-  // Array to hold the final answer.
-  const res = [];
+  // global result
+  const result = [];
 
   // Map to figure out what the letters for each digit maps to.
   const map = {
@@ -16,59 +14,27 @@ const letterCombinations = function (digits) {
     9: ['w', 'x', 'y', 'z'],
   };
 
-  // Helper function that uses backtracking for each digit.
-  function findAllCombinations(index, str) {
-    // Base case. If digit length === index then we have gone through all possibilities for the single char.
-    if (index === digits.length) {
-      res.push(str);
+  // recursive helper method
+  // eslint-disable-next-line no-shadow
+  const dfs = (i, digits, slate) => {
+    // base case
+    if (i === digits.length) {
+      result.push(slate.join(''));
       return;
     }
 
-    // Grab the mapping for the first digit at index.
-    const chars = map[digits.charAt(index)];
+    // recursive case
+    const mapping = map[digits[i]];
 
-    // Iterate through all the chars and add recursively call with incremented index and char added to the string.
-    for (let i = 0; i < chars.length; i++) {
-      findAllCombinations(index + 1, str + chars[i]);
+    for (let j = 0; j < mapping.length; j++) {
+      slate.push(mapping[j]);
+      dfs(i + 1, digits, slate);
+      slate.pop();
     }
-  }
-
-  // Start at index 0 of the digit and an empty string to build the answer.
-  findAllCombinations(0, '');
-
-  return res;
-};
-
-const letterCombinations2 = function (digits) {
-  if (digits.length === 0) return [];
-
-  // Map to figure out what the letters for each digit maps to.
-  const map = {
-    2: ['a', 'b', 'c'],
-    3: ['d', 'e', 'f'],
-    4: ['g', 'h', 'i'],
-    5: ['j', 'k', 'l'],
-    6: ['m', 'n', 'o'],
-    7: ['p', 'q', 'r', 's'],
-    8: ['t', 'u', 'v'],
-    9: ['w', 'x', 'y', 'z'],
   };
 
-  let combinations = [...map[digits[0]]];
-
-  for (let i = 1; i < digits.length; i++) {
-    const updatedCombinations = [];
-    combinations.forEach((combination) => {
-      map[digits[i]].forEach((char) => {
-        updatedCombinations.push(combination + char);
-      });
-    });
-
-    combinations = updatedCombinations;
-  }
-
-  return combinations;
+  dfs(0, digits, []);
+  return result;
 };
 
 console.log(letterCombinations('23'));
-console.log(letterCombinations2('23'));

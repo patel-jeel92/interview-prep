@@ -11,23 +11,27 @@ const combinationSum2 = (candidates, target) => {
     if (target < 0) return;
 
     // base case
-    if (target === 0) {
-      result.push(slate.slice());
+    if (i === candidates.length) {
+      if (target === 0) {
+        result.push(slate.slice());
+      }
       return;
     }
 
-    // dfs recursive case
-    for (let j = i; j < candidates.length; j++) {
-      // eslint-disable-next-line no-continue
-      if (i !== j && candidates[j] === candidates[j - 1]) continue;
-      slate.push(candidates[j]);
-      dfsRecursive(j + 1, candidates, target - candidates[j], slate);
-      slate.pop();
+    // include
+    slate.push(candidates[i]);
+    dfsRecursive(i + 1, candidates, target - candidates[i], slate);
+    slate.pop();
+
+    // exclude. Remove duplicates
+    while (i + 1 < candidates.length && candidates[i] === candidates[i + 1]) {
+      i++;
     }
+    dfsRecursive(i + 1, candidates, target, slate);
   };
 
   dfsRecursive(0, candidates, target, []);
   return result;
 };
-
-export default combinationSum2;
+console.log(combinationSum2([10, 1, 2, 7, 6, 1, 5], 8));
+// export default combinationSum2;

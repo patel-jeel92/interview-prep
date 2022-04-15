@@ -5,7 +5,7 @@ export class LinkedListNode {
   }
 }
 
-class LinkedList {
+export class LinkedList {
   hasNext() {
     return this.next !== null;
   }
@@ -39,4 +39,3 @@ class LinkedList {
     current.next.next = current.next;
   }
 }
-export default LinkedList;

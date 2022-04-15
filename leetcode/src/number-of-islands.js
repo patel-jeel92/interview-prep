@@ -15,10 +15,10 @@ const numIslands = (grid) => {
     ) {
       // Change it to a 0 so we dont revisit the same location.
       grid[i][j] = '0';
-      dfs(i + 1, j); // top
-      dfs(i, j + 1); // right
-      dfs(i - 1, j); // bottom
-      dfs(i, j - 1); // left
+      checkIsland(i + 1, j); // top
+      checkIsland(i, j + 1); // right
+      checkIsland(i - 1, j); // bottom
+      checkIsland(i, j - 1); // left
     }
   };
 

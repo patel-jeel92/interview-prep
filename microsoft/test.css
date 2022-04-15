@@ -1,0 +1,26 @@
+#nav {
+  width: 100%;
+  overflow: auto;
+  display: block;
+  text-align: center;
+}
+#nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+#nav {
+  vertical-align: top;
+  display: inline-block;
+}
+#nav li {
+  width: 20%;
+  position: relative;
+}
+#nav > li {
+  float: left;
+}
+#nav ul li:hover > ul {
+  display: inherit;
+}

@@ -1,20 +1,28 @@
-const lengthOfLongestSubstring = (s) => {
-  let left = 0;
-  let right = 0;
-  const set = new Set();
-  let maxSubStringLength = 0;
+const lengthOfLongestSubstringWithoutRepeatingChars = (s) => {
+  let result = 0;
+  const map = {};
+  let windowStart = 0;
 
-  while (right < s.length) {
-    if (!set.has(s.charAt(right))) {
-      set.add(s.charAt(right));
-      maxSubStringLength = Math.max(maxSubStringLength, set.size);
-      right++;
-    } else {
-      set.delete(s.charAt(left));
-      left++;
+  for (let windowEnd = 0; windowEnd < s.length; windowEnd++) {
+    const rightChar = s[windowEnd];
+
+    map[rightChar] = map[rightChar] + 1 || 1;
+
+    while (map[rightChar] > 1) {
+      const leftChar = s[windowStart];
+      if (map[leftChar] > 1) {
+        map[leftChar]--;
+      } else {
+        delete map[leftChar];
+      }
+      windowStart++;
     }
+
+    result = Math.max(result, windowEnd - windowStart + 1);
   }
-  return maxSubStringLength;
+
+  return result;
 };
 
-export default lengthOfLongestSubstring;
+console.log(lengthOfLongestSubstringWithoutRepeatingChars('abcabcbb'));
+// export default lengthOfLongestSubstringWithoutRepeatingChars;

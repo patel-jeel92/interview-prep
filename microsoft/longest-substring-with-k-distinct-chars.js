@@ -7,6 +7,7 @@ const lengthOfLongestSubstringKDistinct = (s, k) => {
     const rightChar = s[windowEnd];
     soFar = soFar[rightChar] + 1 || 1;
 
+    // While window is invalid, increment left pointer until windows becomes valid again. Keep checking max
     while (soFar.size > k) {
       const leftChar = s[windowStart];
       if (soFar.get(leftChar) > 1) {

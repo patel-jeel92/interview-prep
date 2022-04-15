@@ -1,10 +1,14 @@
 const countGoodNodes = (root) => {
   let result = 0;
 
+  // recursive helper method
   const dfsHelper = (node, maxValue) => {
     if (!node) {
       return 0;
     }
+
+    // pre order traversal. For each node, do the computation first and then call dfs
+    // on children recursively
     if (node.val >= maxValue) {
       result = 1;
     }

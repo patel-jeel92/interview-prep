@@ -12,20 +12,23 @@ const combinationSum = (candidates, target) => {
     if (target < 0) return;
 
     // base case
-    if (target === 0) {
-      result.push(slate.slice());
+    if (i === candidates.length) {
+      if (target === 0) {
+        result.push(slate.slice());
+      }
       return;
     }
 
-    // dfs recursive case
-    for (let j = i; j < candidates.length; j++) {
-      slate.push(candidates[j]);
-      dfsRecursive(j, candidates, target - candidates[j], slate);
-      slate.pop();
-    }
+    // include
+    slate.push(candidates[i]);
+    dfsRecursive(i, candidates, target - candidates[i], slate);
+    slate.pop();
+
+    // exclude
+    dfsRecursive(i + 1, candidates, target, slate);
   };
 
   dfsRecursive(0, candidates, target, []);
   return result;
 };
-export default combinationSum;
+console.log(combinationSum([2, 3, 6, 7], 7));
