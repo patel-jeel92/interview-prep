@@ -55,16 +55,14 @@ class LRUCacheWithNode {
 
   // eslint-disable-next-line class-methods-use-this
   remove(node) {
-    const { prev } = node;
-    const { next } = node;
+    const { prev, next } = node;
 
     prev.next = next;
     next.prev = prev;
   }
 
   insert(node) {
-    const { prev } = this.right;
-    const next = this.right;
+    const { prev, next } = this.right;
 
     prev.next = node;
     next.prev = node;

@@ -1,50 +1,49 @@
 export default function isCircular(instructions) {
-  var x = 0;
-  var y = 0;
-  let instruction = [...instructions];
-  let direction = "north";
+  let x = 0;
+  let y = 0;
+  const instruction = [...instructions];
+  let direction = 'north';
 
   for (let i = 0; i < instruction.length; i++) {
-    if (direction === "north") {
-      if (instruction[i] === "G") {
+    if (direction === 'north') {
+      if (instruction[i] === 'G') {
         y++;
-      } else if (instruction[i] === "L") {
-        direction = "west";
+      } else if (instruction[i] === 'L') {
+        direction = 'west';
       } else {
-        direction = "east";
+        direction = 'east';
       }
-    } else if (direction === "east") {
-      if (instruction[i] === "G") {
+    } else if (direction === 'east') {
+      if (instruction[i] === 'G') {
         x++;
-      } else if (instruction[i] === "L") {
-        direction = "north";
+      } else if (instruction[i] === 'L') {
+        direction = 'north';
       } else {
-        direction = "south";
+        direction = 'south';
       }
-    } else if (direction === "south") {
-      if (instruction[i] === "G") {
+    } else if (direction === 'south') {
+      if (instruction[i] === 'G') {
         y--;
-      } else if (instruction[i] === "L") {
-        direction = "east";
+      } else if (instruction[i] === 'L') {
+        direction = 'east';
       } else {
-        direction = "west";
+        direction = 'west';
       }
     } else {
-      if (instruction[i] === "G") {
+      if (instruction[i] === 'G') {
         x--;
-      } else if (instruction[i] === "L") {
-        direction = "south";
+      } else if (instruction[i] === 'L') {
+        direction = 'south';
       } else {
-        direction = "north";
+        direction = 'north';
       }
     }
   }
 
-  if (direction === "north" && x === 0 && y === 0) {
-    return "YES";
-  } else {
-    return "NO";
+  if (direction === 'north' && x === 0 && y === 0) {
+    return 'YES';
   }
+  return 'NO';
 }
 
 // console.log(isCircular('GGLRLRG'))
