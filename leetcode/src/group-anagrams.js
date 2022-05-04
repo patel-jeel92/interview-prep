@@ -5,9 +5,9 @@ const groupAnagrams = (strs) => {
   for (let i = 0; i < strs.length; i++) {
     const word = strs[i];
     if (!map.get(sortedStrings[i])) map.set(sortedStrings[i], [word]);
-    else map.set(sortedStrings[i], map.get(sortedStrings[i]).push(word));
+    else map.get(sortedStrings[i]).push(word);
   }
 
   return map.values();
 };
-export default groupAnagrams;
+console.log(groupAnagrams(['abc', 'bca', 'cba', 'abz', 'zba']));
