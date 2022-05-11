@@ -10,12 +10,12 @@ const countGoodNodes = (root) => {
     // pre order traversal. For each node, do the computation first and then call dfs
     // on children recursively
     if (node.val >= maxValue) {
-      result = 1;
+      result +=1;
     }
 
     maxValue = Math.max(node.val, maxValue);
-    result += dfsHelper(node.left, maxValue);
-    result += dfsHelper(node.right, maxValue);
+    dfsHelper(node.left, maxValue);
+    dfsHelper(node.right, maxValue);
 
     return result;
   };
