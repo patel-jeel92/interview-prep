@@ -24,3 +24,4 @@ const missingObservations = (rolls, n, mean) => {
   }
   return result;
 };
+export default missingObservations;

@@ -19,12 +19,12 @@ const combinationSum = (candidates, target) => {
       return;
     }
 
-    // include
+    // include (pass in i since you can choose the same element over and over)
     slate.push(candidates[i]);
     dfsRecursive(i, candidates, target - candidates[i], slate);
     slate.pop();
 
-    // exclude
+    // exclude (dont add it to the slate, move on to the next one)
     dfsRecursive(i + 1, candidates, target, slate);
   };
 

@@ -18,12 +18,12 @@ const combinationSum2 = (candidates, target) => {
       return;
     }
 
-    // include
+    // include (add it to the slate, and move on to the next one)
     slate.push(candidates[i]);
     dfsRecursive(i + 1, candidates, target - candidates[i], slate);
     slate.pop();
 
-    // exclude. Remove duplicates
+    // exclude. (Remove duplicates by incrementing i pointer)
     while (i + 1 < candidates.length && candidates[i] === candidates[i + 1]) {
       i++;
     }
